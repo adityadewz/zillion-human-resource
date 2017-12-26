@@ -1,0 +1,134 @@
+@import 'common';
+
+// injector
+// endinjector
+
+.panel-heading{
+	text-align:center;
+}
+
+.panel-body{
+	.value{
+font-size: 40px;
+display: block;
+text-align:center;
+padding: 25px;
+color: #000;
+	}
+}
+
+.description{
+	    font-size: 14px !important;
+}
+
+@media screen and (min-width: 1325px)
+{.pie-charts .pie-chart-item-container {
+    width: 50%;
+}
+}
+
+.description-stats{
+	display: none;
+}
+
+.description{
+	color: #000;
+	.percent{
+		color: #000;
+	}
+	.ng-binding{
+		    font-size: 2.5rem;
+	}
+}
+
+h1,h2,h3{
+	color:black !important;
+}
+
+.panel{
+	.panel-heading{
+		color: #000
+	}
+}
+
+.list-group-item{
+color: #000;
+}
+
+rect{
+	color: #000
+}
+
+.panel-heading{
+	.panel-title{
+		 font-weight: 300;
+	    letter-spacing:1px;
+	}
+	  
+}
+
+.chart-table{
+	td{
+		text-align: left !important;
+	}
+}
+
+.panel{
+	select{
+    width: 100px;
+    background-color: #fff;
+    border-radius: 0;
+    color: #000;
+    /* display: block; */
+    /* margin: auto; */
+    float: right;
+}
+}
+
+.al-title{
+    text-align: center;
+float:none !important;
+    width: 100%;
+    font-size: 33px !important;
+
+    }
+
+    #download-btn{
+    	padding: 0;
+    	border:0;
+    	span{
+    		font-size:28px;
+    	}
+    }
+
+    .breadcrumb{
+    	display: none;
+    }
+.orgchart{
+	width: 100%;
+	.avatar{
+	width: 40px;
+}
+}
+legend{
+	border-bottom:0;
+	text-align: center;
+}
+input[type=file]
+{
+	margin:auto;
+}
+
+#download-btn{
+	position: absolute;
+	top: 2px;
+	left: 2px;
+}
+
+
+.amcharts-chart-div
+{
+a{
+	display: none !important;
+}	
+}

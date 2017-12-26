@@ -1,0 +1,501 @@
+
+<!-- <div class="row">
+ -->	<!-- <div class="col-md-6"
+         ba-panel
+         ba-panel-title="YOY Monthly sales"
+         ba-panel-class="with-scroll">
+      <div class="admin-chart" ng-controller="YOYChart1Ctrl"></div>
+    </div> -->
+
+    <div class="col-md-6">
+    <div class="panel" ng-controller="Tab2Chart1Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+          Training Presentation Rate
+           <select ng-model="viewByChart1">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+        </h1>
+        </div>
+        <div class="panel-body">
+             <div id="Tab2Chart1" class="admin-chart" ng-show="viewByChart1==='chart'"></div>   
+             <div class="chart-table" ng-show="viewByChart1==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                     Month
+                   </th>
+                   <th>
+                     Training Presentation Rate
+                   </th>
+                   <th>
+                       Target
+                   </th>
+                  
+                 </tr>
+                 <tr ng-repeat="item in data">
+                   <td>
+                     {{item.month}}
+                   </td>
+                   <td>
+                     {{item["Product-A"]}}
+                   </td>
+                   <td>
+                     {{item["Product-B"]}}
+                   </td>
+                 
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+    </div>
+    </div>
+
+<!--     <div class="col-md-6"
+         ba-panel
+         ba-panel-title="YOY R-Quarter Sales (in units)"
+         ba-panel-class="with-scroll">
+      <div id="YOYCHart2" class="admin-chart" ng-controller="YOYChart2Ctrl"></div>
+    </div> -->
+
+      <div class="col-md-6">
+    <div class="panel" ng-controller="Tab2Chart2Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+          Management Staff Ratio <select ng-model="viewByChart2">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+        </h1>
+        </div>
+        <div class="panel-body">
+             <div id="Tab2Chart2" class="admin-chart" ng-show="viewByChart2==='chart'"></div>   
+             <div class="chart-table" ng-show="viewByChart2==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                     Month
+                   </th>
+                   <th>
+                     Management Staff Ratio(in %)
+                   </th>
+                 
+                 </tr>
+                 <tr ng-repeat="item in data">
+                   <td>
+                     {{item.month}}
+                   </td>
+                   <td>
+                     {{item["Product-A"]}}
+                   </td>
+                 
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+    </div>
+    </div>
+
+<!-- </div>
+
+<div class="row"> -->
+<!-- 	<div class="col-md-6"
+         ba-panel
+         ba-panel-title="YOY MAT sales (in units)"
+         ba-panel-class="with-scroll">
+      <div id="YOYCHart3" class="admin-chart" ng-controller="YOYChart3Ctrl"></div>
+    </div> -->
+
+
+      <div class="col-md-6">
+    <div class="panel" ng-controller="Tab2Chart3Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+          Headcount <select ng-model="viewByChart3">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+        </h1>
+        </div>
+        <div class="panel-body">
+             <div id="Tab2Chart3" class="admin-chart" ng-show="viewByChart3==='chart'"></div>   
+             <div class="chart-table" ng-show="viewByChart3==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                    Month
+                   </th>
+                   <th>
+                    Headcount
+                   </th>
+                  
+                 </tr>
+                 <tr ng-repeat="item in data">
+                   <td>
+                     {{item.month}}
+                   </td>
+                   <td>
+                     {{item["Product-A"]}}
+                   </td>
+                   
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+    </div>
+    </div>
+
+      <div class="col-md-6">
+    <div class="panel" ng-controller="Tab2Chart5Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+          Employee Satisfaction <select ng-model="viewByChart5">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+        </h1>
+        </div>
+        <div class="panel-body">
+             <div id="Tab2Chart5" class="admin-chart" ng-show="viewByChart5==='chart'"></div>   
+             <div class="chart-table" ng-show="viewByChart5==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                    Group
+                   </th>
+                   <th>
+                    Employee Satisfaction in %
+                   </th>
+                  
+                 </tr>
+                 <tr ng-repeat="item in data[quarter]">
+                   <td>
+                     {{item.country}}
+                   </td>
+                   <td>
+                     {{item.visits}}
+                   </td>
+                   
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+            <div class="panel-footer">
+        <div class="footer-select">
+           <select class="pull-left" ng-model="quarter" ng-change="changeByQuarter(quarter)">
+            <option value="q1">Quarter-1</option>
+            <option value="q2">Quarter-2</option>
+            <option value="q3">Quarter-3</option>
+            <option value="q4">Quarter-4</option>
+          </select>
+         
+        </div>
+            
+        </div>
+    </div>
+    </div>
+
+         <div class="col-md-6">
+    <div class="panel" ng-controller="Tab2Chart6Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+          Unscheduled Absence rate <select ng-model="viewByChart6">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+        </h1>
+        </div>
+        <div class="panel-body">
+             <div id="Tab2Chart6" class="admin-chart" ng-show="viewByChart6==='chart'"></div>   
+             <div class="chart-table" ng-show="viewByChart6==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                    Month
+                   </th>
+                   <th>
+                    Unscheduled Absence Rate in %
+                   </th>
+                  
+                 </tr>
+                 <tr ng-repeat="item in data">
+                   <td>
+                     {{item.country}}
+                   </td>
+                   <td>
+                     {{item.visits}}
+                   </td>
+                   
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+         
+    </div>
+    </div>
+
+   <!--  <div class="col-md-6"
+         ba-panel
+         ba-panel-title="YOY R-Quarter Sales (in units)"
+         ba-panel-class="with-scroll">
+      <div id="YOYCHart4" class="admin-chart" ng-controller="YOYChart4Ctrl"></div>
+    </div>
+ -->
+
+      <div class="col-md-6">
+    <div class="panel" ng-controller="Tab2Chart4Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+         Succession for key positions <select ng-model="viewByChart4">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+          
+        </h1>
+        </div>
+        <div class="panel-body">  
+      
+             <div id="Tab2Chart4" class="admin-chart" ng-show="viewByChart4==='chart'"></div>   
+             <div class="chart-table" ng-show="viewByChart4==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                    Month
+                   </th>
+                   <th>
+                    Target
+                   </th>
+                   <th>
+                       Succession for Key Positions
+                   </th>
+                  
+                 </tr>
+                 <tr ng-repeat="item in data">
+                   <td>
+                     {{item.year}}
+                   </td>
+                   <td>
+                     {{item.expenses}}
+                   </td>
+
+                    <td>
+                     {{item.income}}
+                   </td>
+                   
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+
+    </div>
+    </div>
+
+ <div class="col-md-6">
+    <div class="panel" ng-controller="Tab2Chart8Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+        Job Offer Acceptance Rate <select ng-model="viewByChart8">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+          
+        </h1>
+        </div>
+        <div class="panel-body">  
+      
+             <div id="Tab2Chart8" class="admin-chart" ng-show="viewByChart8==='chart'"></div>   
+             <div class="chart-table" ng-show="viewByChart8==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                    Group
+                   </th>
+                   <th>
+                    Target
+                   </th>
+                   <th>
+                    Job Offer Acceptance Rate in %
+                   </th>
+                  
+                 </tr>
+                 <tr ng-repeat="item in data">
+                   <td>
+                     {{item.year}}
+                   </td>
+                   <td>
+                     {{item.expenses}}
+                   </td>
+
+                    <td>
+                     {{item.income}}
+                   </td>
+                   
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+
+    </div>
+    </div>
+
+    <div class="col-md-6">
+    <div class="panel" ng-controller="Tab2Chart9Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+        Employee Band Strength <select ng-model="viewByChart9">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+          
+        </h1>
+        </div>
+        <div class="panel-body">  
+      
+             <div id="Tab2Chart9" class="admin-chart" ng-show="viewByChart9==='chart'"></div>   
+             <div class="chart-table" ng-show="viewByChart9==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                    Group
+                   </th>
+                
+                   <th>
+                    Employee Band Strength
+                   </th>
+                  
+                 </tr>
+                 <tr ng-repeat="item in data">
+                   <td>
+                     {{item.year}}
+                   </td>
+             
+
+                    <td>
+                     {{item.income}}
+                   </td>
+                   
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+
+    </div>
+    </div>
+
+
+         <div class="col-md-6">
+    <div class="panel" ng-controller="Tab2Chart7Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+         Average Certification per Employee <select ng-model="viewByChart7">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+          
+        </h1>
+        </div>
+        <div class="panel-body">  
+      
+             <div id="Tab2Chart7" class="admin-chart" ng-show="viewByChart7==='chart'"></div>   
+             <div class="chart-table" ng-show="viewByChart7==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                    Month
+                   </th>
+                   <th>
+                    Average Certification per Employee
+                   </th>
+                   
+                  
+                 </tr>
+                 <tr ng-repeat="item in data">
+                   <td>
+                     {{item.year}}
+                   </td>
+                   <td>
+                     {{item.income}}
+                   </td>
+
+                   
+                   
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+
+    </div>
+    </div>
+
+
+         <div class="col-md-6">
+    <div class="panel" ng-controller="Tab2Chart10Ctrl">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+         Bonus Payout <select ng-model="viewByChart10">
+          <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+        </h1>
+        </div>
+        <div class="panel-body">
+             <div id="Tab2Chart10" class="admin-chart" ng-show="viewByChart10==='chart'"></div>   
+             <div class="chart-table" ng-show="viewByChart10==='table'">
+             <div class="table-responsive">
+               <table class="table">
+                 <tr>
+                   <th>
+                    Quarter
+                   </th>
+                   <th>
+                    Bonus Payout in Lacs
+                   </th>
+                  
+                 </tr>
+                 <tr ng-repeat="item in data">
+                   <td>
+                     {{item.country}}
+                   </td>
+                   <td>
+                     {{item.visits}}
+                   </td>
+                   
+                 </tr>
+               </table>
+             </div>  
+             </div>
+             
+        </div>
+         
+    </div>
+    </div>
+
+</div>

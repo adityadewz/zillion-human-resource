@@ -1,0 +1,17 @@
+name,ReportTo,Department,Role,title,Gender,Location,Mobile Number,parentId,id
+Dev,Dev,Head of Depart,CO,Manager,Male,GGN,7840074037,0,1
+D Terry,Dev,Head of Depart,CO 1,Manager,Male,GGN,7840074047,1,2
+Test1,D Terry,D Depart,D 1,Under,Female,HR,12318130,1,3
+Test2,D Terry,D Depart,D 1,Under,Male,NO,11418397,1,4
+Test3,D Terry,D Depart,D 1,Under,Female,D,12980415,2,5
+Terry 1,Test2,Java Depart,D 12,MD,Male,GGN,19605614,2,6
+Terry 2,Test2,Java Depart,D 12,MD,Male,GGN,18264182,3,7
+Terry 3,Test2,Java Depart,D 12,MD,Female,GGN,10350625,3,8
+Terry 4,Test2,Java Depart,D 12,MD,Male,Delhi,17269238,3,9
+Terry 5,Test1,Node Depart,D 12,GD,Female,Delhi,18162401,4,10
+Terry 6,Test1,Node Depart,D 12,GD,Male,Panjab,19741129,4,11
+Terry 7,Test1,Node Depart,D 12,GD,Male,Panjab,18016435,5,12
+TY 1,Terry 6,Java Depart,D 13,MD,Female,GGN,12562786,6,13
+TY 2,Terry 6,Java Depart,D 14,Under,Male,GGN,13258321,6,14
+TY 3,Terry 6,Java Depart,D 15,Under,Female,HR,19691171,7,15
+TY 4,Terry 6,Node Depart,D 16,GD,Male,NO,15904003,6,16

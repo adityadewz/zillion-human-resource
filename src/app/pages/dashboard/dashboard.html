@@ -1,0 +1,461 @@
+<script src="https://www.amcharts.com/lib/3/gauge.js"></script>
+
+<style>
+#chartdiv {
+width   : 100%;
+height    : 500px;
+font-size : 11px;
+}
+
+  #f1_container {
+  position: relative;
+  margin: 10px auto;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+}
+#f1_container {
+  perspective: 1000;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.3);
+}
+#f1_card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 0.4s ease-in-out;
+}
+#f1_container:hover #f1_card {
+  transform: rotateY(180deg);
+  box-shadow: -5px 5px 5px #aaa;
+}
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.face.back {
+  display: block;
+  transform: rotateY(180deg);
+  box-sizing: border-box;
+  color: white;
+  text-align: center;
+  background-color: #333;
+  background: -webkit-radial-gradient(#464646,#333); /* Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(#464646,#333); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(#464646,#333); /* For Firefox 3.6 to 15 */
+  background: radial-gradient(#464646,#333); /* Standard syntax */
+}
+#flex-container1 {
+    display:-webkit-flex;
+      display: flex;
+      
+      -webkit-justify-content: space-around;
+        justify-content: space-around;
+      height: 15vh;
+      
+}
+
+#flex-item1 {
+    width: 100px;
+    height: 100px;
+   
+}
+.face.back p{font-size: 12px;line-height: 16px;margin:0;}
+.face.back p:first-child{font-size: 18px;line-height: 24px;margin: 16px 0 8px;}
+</style>
+<!-- <dashboard-pie-chart></dashboard-pie-chart>
+-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="panel">
+        <div class="panel-heading">
+          <h2 class="panel-title">All Reviews</h2>
+        </div>
+        <div class="panel-body">
+          <span class="text-center value">35</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="panel">
+        <div class="panel-heading">
+          <h2 class="panel-title">Employee Reviews</h2>
+        </div>
+        <div class="panel-body">
+          <span class="text-center value">22</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="panel">
+        <div class="panel-heading">
+          <h2 class="panel-title">Manager Reviews</h2>
+        </div>
+        <div class="panel-body">
+          <span class="text-center value">12</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="panel">
+        <div class="panel-heading">
+          <h2 class="panel-title">Completed Reviews</h2>
+        </div>
+        <div class="panel-body">
+          <span class="text-center value">15</span>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-3">
+      <div class="panel">
+        <div class="panel-heading">
+          <h2 class="panel-title">Quarterly Statistics</h2>
+        </div>
+        <div class="panel-body">
+          
+          <ul class="list-group">
+            <li class="list-group-item">New Hiree: 34</li>
+            <li class="list-group-item">Separation: 67</li>
+            <li class="list-group-item">Active Head Count: 53</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+<div class="col-md-9">
+  <dashboard-pie-chart></dashboard-pie-chart>
+
+</div>
+
+  </div>
+    <div class="row">
+    <div class="col-md-4">
+      <div class="panel" ng-controller="Chart6Ctrl">
+        <div class="panel-heading">
+          Performance 
+          <select ng-model="view">
+            <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+        </div>
+        <div class="panel-body">
+          <div id="BarChart" class="admin-chart hr-chart" ng-show="view==='chart'"></div>
+           <div class="chart-table" ng-show="view==='table'">
+<!-- <div class="row">
+  <div class="col-md-6">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="csv" ng-model="opt1"> CSV
+      </label>
+      <label>
+        <input type="checkbox" value="xls" ng-model="opt2"> XLS
+      </label>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <button class="btn btn-default pull-right" id="download-btn" ng-click="downloadcsv(opt1,opt2)"><span class="ion-android-download"></span></button>
+  </div>
+</div> -->
+           
+          <div class="table-responsive">
+            <table class="table">
+              
+              <tr>
+                <th>Sex</th>
+                 <th>Performance</th>
+                 
+              </tr>
+
+              <tr ng-repeat="item in data">
+              
+              <td>{{item.sex}}</td>
+              <td>{{item.performance}}</td>
+              </tr>
+            </table>
+          </div>   
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="panel"  ng-controller="chart1Ctrl">
+        <div class="panel-heading">
+          Performance by Organisation unit 
+          <select ng-model="view">
+            <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+        </div>
+        <div class="panel-body" >
+          <div id="Chart1" class="admin-chart hr-chart" ng-show="view==='chart'"></div>
+          <div class="chart-table" ng-show="view==='table'">
+       <!--    <div class="row">
+  <div class="col-md-6">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="csv" ng-model="opt1"> CSV
+      </label>
+      <label>
+        <input type="checkbox" value="xls" ng-model="opt2"> XLS
+      </label>
+    </div>
+  </div>
+  <div class="col-md-6">
+     <button class="btn btn-default pull-right" id="download-btn" ng-click="downloadcsv(opt1,opt2)"><span class="ion-android-download"></span></button>
+  </div>
+</div> -->
+            <div class="table-responsive">
+              <table class="table">
+                <tr>
+                  <th>
+                    Department
+                  </th>
+                  <th>
+                    Male
+                  </th>
+                  <th>
+                    Female
+                  </th>
+
+                </tr>
+                <tr ng-repeat="item in data">
+                  <td>
+                    {{item.label}}
+                  </td>
+                  <td>
+                    {{item.Male}}
+                  </td>
+                  <td>
+                    {{item.Female}}
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel" ng-controller="chart2Ctrl">
+        <div class="panel-heading">
+          Performance by Age group
+          <select ng-model="view">
+            <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+        </div>
+        <div class="panel-body">
+          <div id="Chart2" class="admin-chart hr-chart" ng-show="view==='chart'"></div>
+          <div class="chart-table" ng-show="view==='table'">
+     <!--      <div class="row">
+  <div class="col-md-6">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="csv" ng-model="opt1"> CSV
+      </label>
+      <label>
+        <input type="checkbox" value="xls" ng-model="opt2"> XLS
+      </label>
+    </div>
+  </div>
+  <div class="col-md-6">
+     <button class="btn btn-default pull-right" id="download-btn" ng-click="downloadcsv(opt1,opt2)"><span class="ion-android-download"></span></button>
+  </div>
+</div> -->
+          <div class="table-responsive">
+            <table class="table">
+            
+              <tr>
+                 <th>Age group</th>
+                <th>Male</th>
+                <th>Female</th>
+              </tr>
+
+              <tr ng-repeat="item in data">
+              
+              <td>{{item.age}}</td>
+              <td>{{item.male}}</td>
+              <td>{{item.female}}</td>
+              </tr>
+            </table>
+          </div>   
+          </div>
+         
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="col-md-4">
+      <div class="panel">
+        <div class="panel-heading">
+          Compliance
+        </div>
+        <div class="panel-body">
+          <div id="Chart3" class="admin-chart" ng-controller="chart3Ctrl"></div>
+        </div>
+      </div>
+    </div> -->
+ 
+  <div class="col-md-6">
+      <div class="panel" ng-controller="Chart7Ctrl">
+        <div class="panel-heading">
+          New Hiree by age group
+          <select ng-model="view">
+            <option value="chart">Chart</option>
+            <option value="table">Table</option>
+        
+          </select>
+        </div>
+        <div class="panel-body">
+      
+      <div id="pieChart" class="admin-chart hr-chart" ng-show="view==='chart'"></div>
+
+      <div class="chart-table" ng-show="view==='table'" >
+      <div class="row">
+<!--   <div class="col-md-6">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="csv" ng-model="opt1"> CSV
+      </label>
+      <label>
+        <input type="checkbox" value="xls" ng-model="opt2"> XLS
+      </label>
+    </div>
+  </div> -->
+  <div class="col-md-6">
+    <button class="btn btn-default pull-right" id="download-btn" ng-click="downloadcsv(opt1,opt2)"><span class="ion-android-download"></span></button>
+  </div>
+</div>
+          <div class="table-responsive">
+            <table class="table">
+            
+              <tr>
+                 <th>Age group</th>
+                <th>Hiree</th>
+              </tr>
+
+              <tr ng-repeat="item in data">
+              
+              <td>{{item["Age-group"]}}</td>
+              <td>{{item["Hiree"]}}</td>
+              </tr>
+            </table>
+          </div>   
+          </div>
+        </div>
+      </div>
+    </div>
+<div class="col-md-12" ng-controller="Chart8Ctrl">
+
+      <div ba-panel ba-panel-title='Quarterly Compliance Progress  <select ng-model="view">
+            <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>' ba-panel-class="with-scroll">
+
+        <div
+            area-chart
+            area-data='areaData'
+            area-xkey='y'
+            area-ykeys='["a", "b","c"]' %
+            area-labels='["Ethics", "Harassment","Safety"]'
+            line-colors='colors'
+            ng-show="view==='chart'"
+            class="hr-chart"
+            >
+        </div>
+            <div class="chart-table" ng-show="view==='table'" >
+ <!--     <div class="row">
+  <div class="col-md-6">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="csv" ng-model="opt1"> CSV
+      </label>
+      <label>
+        <input type="checkbox" value="xls" ng-model="opt2"> XLS
+      </label>
+    </div>
+  </div>
+  <div class="col-md-6">
+     <button class="btn btn-default pull-right" id="download-btn" ng-click="downloadcsv(opt1,opt2)"><span class="ion-android-download"></span></button>
+  </div>
+</div> -->
+          <div class="table-responsive">
+            <table class="table">
+            
+              <tr>
+                <th>Year</th>
+                 <th>Ethics</th>
+                 <th>Harassment</th>
+                 <th>Safety</th>
+              </tr>
+
+              <tr ng-repeat="item in data">
+              
+              <td>{{item.y}}</td>
+              <td>{{item.a}}</td>
+              <td>{{item.b}}</td>
+              <td>{{item.c}}</td>
+              </tr>
+            </table>
+          </div>   
+          </div>
+      </div>
+    </div>
+     <div class="col-md-6">
+      <div class="panel" ng-controller="chart4Ctrl">
+        <div class="panel-heading">
+          Total strength
+          <select ng-model="view">
+            <option value="chart">Chart</option>
+            <option value="table">Table</option>
+          </select>
+        </div>
+        <div class="panel-body">
+      <div id="pieChart2" class="admin-chart hr-chart"" ng-show="view==='chart'"></div>
+
+
+      <div class="chart-table" ng-show="view==='table'" >
+<!--      <div class="row">
+  <div class="col-md-6">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="csv" ng-model="opt1"> CSV
+      </label>
+      <label>
+        <input type="checkbox" value="xls" ng-model="opt2"> XLS
+      </label>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <button class="btn btn-default pull-right" id="download-btn" ng-click="downloadcsv(opt1,opt2)"><span class="ion-android-download"></span></button>
+  </div>
+</div> -->
+          <div class="table-responsive">
+            <table class="table">
+            
+              <tr>
+                <th>Sex</th>
+                 <th>Strength</th>
+                 <th></th>
+              </tr>
+
+              <tr ng-repeat="item in data">
+              
+              <td>{{item.sex}}</td>
+              <td>{{item.strength}}</td>
+              </tr>
+            </table>
+          </div>   
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
